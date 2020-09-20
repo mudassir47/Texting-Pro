@@ -1,0 +1,127 @@
+<!-- Texting PRO APP -->
+<!-- Made by =>AHSAN AZEEMI<= -->
+<!-- HTML -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texting PRO</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="Images/logo.png" width='32px' height='32px' type="image/x-icon">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+  <!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyD2HooqMNPZotpaHzn8Y6evYqdv6CtgUQ0",
+    authDomain: "texting-pro.firebaseapp.com",
+    databaseURL: "https://texting-pro.firebaseio.com",
+    projectId: "texting-pro",
+    storageBucket: "texting-pro.appspot.com",
+    messagingSenderId: "545012608174",
+    appId: "1:545012608174:web:a5fcc58057eb0045b4513f",
+    measurementId: "G-1C2L26NJKY"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+</head>
+<body>
+
+<!-- Error Message -->
+<div class="chk" id="modalHide">
+  <div class="modal">
+    <h1>Something Went Wrong!</h1>
+    <p>It's Look Like that You are not Connected to the Server or Internet has been disconnected. Please Report the Bug to the Developer.</p>
+    <button onclick="closeError()">OK</button>
+  </div>
+</div>
+<div class="chk" id="secondModalHide">
+  <div class="modal">
+    <h1>Requested User Not Found!</h1>
+    <p>Please Enter a Valid Email Address or The user has not Singed up to Texting PRO.</p>
+    <button onclick="closeMailError()">OK</button>
+  </div>
+</div>
+
+<div id="blur">
+<!-- Login Area -->
+<div id="loginArea">
+  <div class="container1">
+    <img src="Images/logo.png" alt="Texting PRO">
+    <h1>Welcome to <br>Texting PRO</h1>
+    <button onclick="login()" id="btn1">Continue with Facebook</button>
+  </div>
+</div>
+
+<!-- User Area -->
+<div id="userArea" class="hideb">
+
+  <div class="userHeader">
+
+    <div class="ext1">
+      <img id="userImage" src='Images/logo.png' widt='32px' height='32px' alt="Image">
+      <h1 id="userName">Ahsan</h1>
+    </div>
+
+    <div class="ext2">
+      <div style="float: right;">
+        <span class="span1">Not You! </span>
+        <button onclick="signout()" id="btn2">Logout</button>
+      </div>
+    </div>
+    
+    
+  </div>
+
+  <div class="mainUserArea">
+      <div class="addContacts" id="contactLists">
+        <h1> <i class="fas fa-users"></i> Add Contacts</h1>
+        <input type="email" id="add_contacts" placeholder="Find Freinds by Email Address"><button onclick="addContact()"><i class="fas fa-user-plus"></i></button>
+        <span id="ext2">Add Contacts & Then Click on Your Contacts to Chat with them</span>
+      </div>
+      <div class="messageArea" id="messageArea">
+        <h1 id="ext3"> <i class="fas fa-comment-lines"></i> Chats</h1>
+        <div id="allMessages">
+
+        </div>
+        <span id="messageSend">
+          <input type="text" placeholder='Type a Message' id="textInp">
+          <button onclick="sendSMS()"><i class="fab fa-telegram"></i></button>
+        </span>
+          
+      </div>
+      <div class="profileArea">
+        <h1> <i class="fas fa-user-circle"></i> My Profile</h1>
+        <img  id="userProfileImage">
+        <h2 id="userNameProfile"></h2>
+        <h3>Status: Online <i class="fas fa-circle"></i></h3>
+        <h3>E-Mail Address : <span id="userProfileEmail"></span></h3>
+        <h3>User ID : <span id="userProfileId"></span></h3>
+        <h3>Last Login : <span id="lastLogin"></span></h3>
+        <button onclick="signout()" id="profileLogout">Logout</button><br>
+        <button id="deleteButton" onclick="signout()">DELETE My Account</button>
+      </div>
+  </div>
+
+  </div>
+
+</div>
+
+
+</body>
+<!-- <input type="text" id="inp1"> <button onclick="sendSms()">send</button>
+    <p id="mes"></p> -->
+<script src="app.js"></script>
+</html>

@@ -1,0 +1,480 @@
+/*Texting PRO APP 
+Made by =>AHSAN AZEEMI<= 
+**CSS */
+
+/* Important */
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: 0.3s all linear;
+}
+.hide{
+    display: none !important;
+}
+body{
+    width: 100%;
+}
+/* Error Message */
+
+.chk{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#modalHide{
+    display: none;
+}
+.modal{
+    z-index: 1;
+    display: inline-block;
+    margin: 0 auto;
+    position: fixed;
+    top: 30%;
+    height: auto;
+    padding: 20px;
+    max-width: 800px;
+    background: #3a3b3b;
+    border-radius: 15px;
+    color: aliceblue;
+
+}
+.modal h1{
+    font-size: 40px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid grey;
+    padding: 14px;
+}
+.modal p{
+    font-size: 20px;
+    margin: 20px 0;
+}
+.modal button{
+    width: 190px;
+    float: right;
+    display: block;
+    font-size: 20px;
+    margin: 10px 0;
+    margin-right: 30px;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-style: none;
+    background-color: #525353;
+    transition: 0.6s;
+    outline: none;
+}
+.modal button:hover{
+    background-color: #1facfd;
+}
+.blur{
+    filter: blur(8px);
+  
+}
+#secondModalHide{
+    display: none;
+}
+/* Login Area */
+#loginArea{
+    width: 100%;
+    height: 100vh;
+    background-color: #252424;
+    text-align: center;
+}
+.container1{
+    position: relative;
+    top: 25%;
+}
+#loginArea img{
+    margin: 0px auto;
+    display: block;
+    width: 150px;
+
+}
+#loginArea h1{
+    color: aliceblue;
+}
+#btn1{
+  display: block;
+  font-size: 20px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-style: none;
+  background: #3a3b3b;
+  transition: 0.6s;
+  outline: none;
+}
+#btn1:hover{
+    background: linear-gradient(180deg, #1facfd,#1d79e9);
+}
+
+/* User Area */
+#userArea{
+    width: 100%;
+    height: 100vh;
+    background-color: #252424 !important;
+}
+#userArea h1{
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+    position: relative;
+    bottom: 15px;
+    color: aliceblue;
+}
+#btn2{
+    display: inline-block;
+    float: right;
+    font-size: 16px;
+    margin: 10px 10px;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-style: none;
+    background: #3a3b3b;
+    transition: 0.6s;
+    outline: none;
+  }
+  #btn2:hover{
+      background: linear-gradient(180deg, #1facfd,#1d79e9);
+  }
+  .userHeader{
+      height: 10vh;
+      width: 100%;
+      padding: 5px;
+      background: #202020;
+      font-size: 16px !important;
+  }
+  #userImage{
+    border-radius: 50%;
+  }
+  .ext1,.ext2{
+    display: inline-block;
+    width: 48%;
+}
+.ext1{
+    height: 55px;
+}
+.ext1 span{
+    display: inline-block;
+    margin: auto 4px;
+}
+.ext2{
+    height: 55px;
+}
+  .span1{
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    padding: 10px;
+    color: white;
+  }
+  
+/* main user Area */
+
+.mainUserArea{
+    width: 100%;
+    height: 90vh;
+    background: #252424;
+    color: white;
+    text-align: center ;
+    padding: 15px;
+}
+.mainUserArea div{
+    width: 30%;
+    display: inline-block;
+    overflow: auto;
+    height: 87vh;
+    border-radius: 10px;
+    border: 1px solid #6c6d6d;
+    margin: 0px 9px;
+}
+.mainUserArea div::-webkit-scrollbar{
+    width: 10px;
+
+}
+.mainUserArea div::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+.mainUserArea div::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background:linear-gradient(180deg,#03e6f6, #58bcf6, #1d79e9);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+.mainUserArea div h1{
+    
+    text-align: left !important;
+    margin: 10px 0 !important;
+    background: #424242;
+    padding: 20px;
+    width: 100%;
+    display: block !important;
+    font-size: 18px !important;
+}
+#add_contacts{
+    margin-left: 5px ;
+    padding: 5px;
+    width: 80%;
+    background: transparent;
+    color: white;
+    outline: none;
+    border-style: none;
+    border-bottom: 1px solid #6c6d6d;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.addContacts button{
+    background: linear-gradient(180deg,#03e6f6, #58bcf6, #1d79e9);
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 5px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+.addContacts h1 i, .messageArea h1 i,.profileArea h1 i{
+    background: linear-gradient(180deg,#03e6f6, #58bcf6, #1d79e9);
+    padding: 5px;
+    border-radius: 10px;
+}
+.addContacts div{
+    width: 100%;
+    height: 73px;
+    overflow: auto;
+    padding: 5px;
+    margin: 0;
+    background: #424242;
+    border: none;
+    border-radius: initial;
+    text-align: left !important;
+    cursor: pointer;
+    border-bottom: 1px solid #6c6d6d;
+}
+.addContacts div:hover{
+    background: #313131;
+}
+.addContacts div img{
+    display: inline-block;
+}
+.addContacts div h2{
+    margin-left: 5px;
+    width: 78%;
+    font-size: 18px;
+    position: relative;
+    top: -20px;
+    display: inline-block;
+}
+#ext2{
+    display: block;
+    margin: 15px 5px;
+}
+.messageArea h2{
+    padding: 10px 7px;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    background: #202020;
+    position: relative;
+    bottom: 15px;
+}
+.messageArea h2 img{
+    margin-right: 5px;
+    border-radius: 50%;
+}
+.messageArea h2 span{
+    font-size: 18px;
+}
+#ext3{
+    margin-bottom: 0px !important;
+}
+.profileArea{
+    text-align: center;
+}
+.profileArea h3 i{
+    font-size: 15px;
+    color: greenyellow !important;
+}
+.profileArea h3{
+    margin: 15px;
+    text-align: left;
+}
+#userNameProfile{
+    margin: 20px;
+}
+#userProfileImage{
+    border: 5px solid white;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    max-width: 300px;
+    max-height: 300px;
+}
+#profileLogout, #deleteButton{
+    width: 100px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-style: none;
+    background: #3a3b3b;
+    transition: 0.6s;
+    outline: none;
+}
+#profileLogout:hover{
+    background: #1d79e9;
+}
+#deleteButton{
+    width: 200px;
+}
+#deleteButton:hover{
+    background: red;
+}
+
+.messageArea div{
+    margin: 0;
+    margin-top: -15px;
+    width: 100%;
+    height: 83%;
+    overflow: auto;
+        outline: none;
+    padding: 0px;
+    border: none;
+    border-radius: 0;
+    font-size: 20px;
+}
+#delPrevious{
+    position: initial;
+}
+#messageSend{
+    position: sticky;
+    width: 100%;
+    height: 50px;
+    text-align: left !important;
+}
+#messageSend input{
+    display: inline-block;
+    color: white;
+    outline: none;
+    border-style: none;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 78%;
+    height: 50px;
+    background: #525353;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+#messageSend button{
+    border: none;
+    border-style: none;
+    background: transparent;
+    width: 15%;
+    position: relative;
+   top: 5px;
+    outline: none;
+    cursor: pointer;
+    font-size: 38px;
+color: #58bcf6;
+
+}
+#messageSend button i{
+    border-radius: 20px;
+    background: white
+}
+#allMessages{
+    padding: 0px;
+}
+#messageLi{
+    display: block !important;
+    width: 200px;
+    max-width: auto;
+    height: auto;
+    overflow-wrap: break-word;
+    float: right;
+    list-style: none;
+    text-align: left;
+    border-radius: 20px;
+    background: #6c6d6d;
+    color: white;
+    padding: 10px 8px;
+    margin: 5px 5px;
+    
+}
+#messageLi2{
+    display: block !important;
+    width: 200px;
+    max-width: auto;
+    height: auto;
+    overflow-wrap: break-word;
+    list-style: none;
+    text-align: left;
+    border-radius: 20px;
+    background: #1d79e9;
+    color: white;
+    padding: 10px 8px;
+    margin: 5px 5px;
+    
+}
+/* Tablet/Mobile Media Frames */
+
+@media only Screen and (max-width: 768px){
+    .modal{
+        width: 85% !important;
+        position: fixed;
+        top: 10%;
+        padding: 15px;
+    }
+    .modal h1{
+        margin: 0;
+        font-size: 25px;
+    }
+    .modal p{
+        margin: 10px 0;
+        font-size: 18px;
+    }
+    .modal button{
+        width: 120px;
+        margin-right: 0px;
+    }
+    .ext1,.ext2{
+        height: 30px;
+    }
+    #btn2{
+        font-size: 15px !important;
+        margin: 0;
+        padding: 7px;
+    }
+    .ext1{
+        width: 70%;
+    }
+    .ext2{
+        width: 25%;
+    }
+    .ext1 img{
+        width: 32px;
+        height: 32px;
+    }
+    .ext1 h1{
+        font-size: 14px !important;
+        position: absolute;
+        top: -9px;
+    }
+    .span1{
+        display: none;
+    }
+}
