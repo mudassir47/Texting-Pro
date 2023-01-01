@@ -10,7 +10,7 @@ Welcome to Texting Pro — my first chat app, a real-time messaging application 
 
 ## Screenshots
 
-Insert screenshots of your chat app here.
+
 ![Alt text](screenshot.png "Screenshot of Chat App")
 
 
