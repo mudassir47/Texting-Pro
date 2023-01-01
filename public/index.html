@@ -15,27 +15,6 @@
   <link rel="shortcut icon" href="Images/logo.png" width='32px' height='32px' type="image/x-icon">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-
-  <!-- Firebase Scripts -->
-<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
-<script>
-  var firebaseConfig = {
-    apiKey: "AIzaSyD2HooqMNPZotpaHzn8Y6evYqdv6CtgUQ0",
-    authDomain: "texting-pro.firebaseapp.com",
-    databaseURL: "https://texting-pro.firebaseio.com",
-    projectId: "texting-pro",
-    storageBucket: "texting-pro.appspot.com",
-    messagingSenderId: "545012608174",
-    appId: "1:545012608174:web:a5fcc58057eb0045b4513f",
-    measurementId: "G-1C2L26NJKY"
-  };
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-
 </head>
 <body>
 
@@ -123,5 +102,12 @@
 </body>
 <!-- <input type="text" id="inp1"> <button onclick="sendSms()">send</button>
     <p id="mes"></p> -->
+
+
+    
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+
 <script src="app.js"></script>
 </html>

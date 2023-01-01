@@ -2,12 +2,27 @@
 // Made by =>AHSAN AZEEMI<= 
 // =)JAVASCRIPT(=
 
-login=()=>{
+const firebaseApp = firebase.initializeApp({ 
+  apiKey: "AIzaSyD2HooqMNPZotpaHzn8Y6evYqdv6CtgUQ0",
+  authDomain: "texting-pro.firebaseapp.com",
+  databaseURL: "https://texting-pro.firebaseio.com",
+  projectId: "texting-pro",
+  storageBucket: "texting-pro.appspot.com",
+  messagingSenderId: "545012608174",
+  appId: "1:545012608174:web:a5fcc58057eb0045b4513f",
+  measurementId: "G-1C2L26NJKY"
+});
+const db = firebaseApp.firestore();
+const auth = firebaseApp.auth();
+
+login= async() =>{
+
+
     var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+    firebase.auth().signInWithPopup(provider).then(async function(result) {
         var user = result.user;
 
-
+        console.log(user);
         
         document.getElementById('userImage').src=user.photoURL
         document.getElementById('userName').innerHTML=user.displayName
@@ -35,7 +50,9 @@ login=()=>{
         var joinedEmail = sli.join('')
         var emailIdHalf = joinedEmail
         var changedMail3 = emailIdHalf.replace('.','*')
-        firebase.database().ref('users/'+changedMail3).set(userData)
+        // const ref = collection(db, 'users')
+
+        db.collection(`users`).doc(changedMail3).set(userData)
         userProfile=()=>{
           document.getElementById('userProfileImage').src=userData.photoURL
           document.getElementById('userNameProfile').innerHTML= userData.name
@@ -58,17 +75,6 @@ login=()=>{
       });
 }
 
-// sendSms=()=>{
-//   // let id = localStorage.getItem('userEmail')
-//   // id.indexOf('@')
-//   var val = document.getElementById('inp1')
-//   firebase.database().ref('users/'+id+'/'+ "messages").push(val.value)
-// }
-// let id = localStorage.getItem('userIdNo')
-// firebase.database().ref('null'+'/'+ "messages").on('child_added',(data)=>{
-//   document.getElementById('mes').innerHTML=data.val()
-// })
-
 addContact=()=>{
   var contact = document.getElementById('add_contacts').value 
         var num = contact.indexOf('@')
@@ -77,21 +83,24 @@ addContact=()=>{
         var joinedEmail = sli.join('')
         var emailIdHalf = joinedEmail
         var changedMail4 = emailIdHalf.replace('.','*')
+        
+        db.collection(`users`).doc(changedMail4).get().then((data)=>{
+            var gotEmailData = data.data()
 
-           firebase.database().ref('users/'+changedMail4+'/'+'emailAddress').on('value',(data)=>{
-            var gotEmailData = data.val()
-            checkEmail(gotEmailData)
+            checkEmail(gotEmailData.emailAddress)
           })
           checkEmail=(x)=>{
-            if(x==contact && x!==localStorage.getItem('userEmail')){
+            //if(x==contact && x!==localStorage.getItem('userEmail')){
+            if(x==contact ){
+            
             var div = document.createElement('div')
             div.setAttribute('id','myDiv1')
             var img = document.createElement('img')
             var h2 = document.createElement('h2')
             
-            firebase.database().ref('users/'+changedMail4+'/'+'photoURL').on('value',(data)=>{
-              var gotPhotoData = data.val()
-              checkPhoto(gotPhotoData)
+            db.collection(`users`).doc(changedMail4).get().then((data)=>{
+            var gotPhotoData = data.data()
+              checkPhoto(gotPhotoData.photoURL)
             })
             checkPhoto=(y)=>{
               img.src=y
@@ -100,9 +109,9 @@ addContact=()=>{
               img.style.borderRadius='40px'
             }
 
-            firebase.database().ref('users/'+changedMail4+'/'+'name').on('value',(data)=>{
-              var gotNameData = data.val()
-              checkName(gotNameData)
+            db.collection(`users`).doc(changedMail4).get().then((data)=>{
+              var gotNameData = data.data()
+              checkName(gotNameData.name)
             })
             checkName=(z)=>{
               var txt = document.createTextNode(z)
@@ -128,6 +137,7 @@ addContact=()=>{
                 let span =document.createElement('span')
 
                 img5.src=img.src
+                img5.width = '50'
                 
                 var txt5 = document.createTextNode(txt.nodeValue)
                 span.appendChild(txt5)
@@ -153,17 +163,23 @@ addContact=()=>{
                 var emailIdHalft = joinedEmailt
                 var changedMail1 = emailIdHalft.replace('.','*')
                 
-
-
-                setTimeout(()=>{firebase.database().ref('users/'+changedMail2+'/messages/'+changedMail1+'/').on('child_added',(data)=>{
-                  console.log(data.val())
-                  var message = document.createElement('div')
-                  message.setAttribute('id','messageLi2')
-                  var secondTxt = document.createTextNode(data.val())
-                  message.appendChild(secondTxt)
-                  document.getElementById('allMessages').appendChild(message)
-                })},1000)
                 
+                setTimeout(() => {
+                  db.collection('users').doc(changedMail2).collection('messages').doc(changedMail1).collection('messages').onSnapshot((snapshot) => {
+                    snapshot.docChanges().forEach((change) => {
+                      if (change.type === 'added') {
+                        var message = document.createElement('div')
+                        message.setAttribute('id', 'messageLi2')
+                        var secondTxt = document.createTextNode(change.doc.data().val)
+                        message.appendChild(secondTxt)
+                        document.getElementById('allMessages').appendChild(message)
+                      }
+                    });
+                  });
+                }, 1000)
+                
+                
+
               }
 
               button1.appendChild(i1)
@@ -177,6 +193,7 @@ addContact=()=>{
 
 
             }else{
+              
               document.getElementById('blur').classList='blur'
               document.getElementById('secondModalHide').style.display='flex'
             }
@@ -205,7 +222,10 @@ sendSMS =()=>{
   var joinedEmails = slis.join('')
   var myemailIdHalf = joinedEmails
   var changedMail6 = myemailIdHalf.replace('.','*')
-  firebase.database().ref('users/'+changedMail5+'/'+"messages"+"/"+changedMail6 +'/').push(val)
+  // db.collection(`users`).doc(changedMail3).set(userData)
+  // firebase.database().ref('users/'+changedMail5+'/'+"messages"+"/"+changedMail6 +'/').push(val)
+  db.collection('users').doc(changedMail5).collection('messages').doc(changedMail6).collection('messages').add({val});
+
 
   document.getElementById('textInp').value=''
 
