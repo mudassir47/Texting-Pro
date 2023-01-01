@@ -1,6 +1,8 @@
 # Texting Pro — My First Chat App
 
 Welcome to Texting Pro — my first chat app, a real-time messaging application built with Firebase Firestore and Firebase Facebook authentication. I created this app when I was 1 years old as a way to learn and grow as a developer. I wanted to build something that people could actually use and interact with, and I hope that this chat app can serve as a source of inspiration for other young developers who are just starting out.
+<br>
+Live URL: [Texting Pro Chat App](https://texting-pro.web.app/)
 
 ## Features
 
